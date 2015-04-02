@@ -109,7 +109,7 @@ if (!Array.prototype.indexOf) {
             }
         });
 
-        /* Scroll to Element on Page - 
+        /* Scroll to Element on Page -
         /* USAGE: Add class "scrollTo" and in href add element where you want to scroll page to.
         ==================================================================================== */
         $('a.scrollTo').click(function(event) {
@@ -328,7 +328,7 @@ if (!Array.prototype.indexOf) {
             return false;
         });
 
-        /* Google Map 
+        /* Google Map
         ==================================================================================== */
         google.maps.event.addDomListener(window, 'load', init);
 
@@ -338,17 +338,80 @@ if (!Array.prototype.indexOf) {
             }
 
             var markerImages = {
-                airport: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 0),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344)},
-                hotel: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 58),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344)},
-                restaurant: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 116),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },
-                shopping: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 174),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },    
-                attraction: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 232),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },
-                special: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 54),origin: new google.maps.Point(0, 290),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },
-        
-                bachelor: { url:'images/map/MapPins-big-red1.png',size: new google.maps.Size(53, 93),origin: new google.maps.Point(0, 0),anchor: new google.maps.Point(26.5, 68),scaledSize: new google.maps.Size(53, 372) },
-                bachelorette: { url:'images/map/MapPins-big-red1.png',size: new google.maps.Size(53, 93),origin: new google.maps.Point(0, 93),anchor: new google.maps.Point(26.5, 68),scaledSize: new google.maps.Size(53, 372) },
-                wedding: { url:'images/map/MapPins-big-red1.png',size: new google.maps.Size(53, 93),origin: new google.maps.Point(0, 186),anchor: new google.maps.Point(26.5, 68),scaledSize: new google.maps.Size(53, 372) },
-                weddingParty: { url:'images/map/MapPins-big-red1.png',size: new google.maps.Size(53, 93),origin: new google.maps.Point(0, 279),anchor: new google.maps.Point(26.5, 68),scaledSize: new google.maps.Size(53, 372) },
+                // airport: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 0),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344)},
+                // hotel: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 58),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344)},
+                // restaurant: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 116),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },
+                // shopping: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 174),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },
+                // attraction: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 58),origin: new google.maps.Point(0, 232),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },
+                // special: { url:'images/map/MapPins-small-red1.png',size: new google.maps.Size(35, 54),origin: new google.maps.Point(0, 290),anchor: new google.maps.Point(17.5, 40),scaledSize: new google.maps.Size(35, 344) },
+
+                // bachelor: { url:'images/map/MapPins-big-red1.png',size: new google.maps.Size(53, 93),origin: new google.maps.Point(0, 0),anchor: new google.maps.Point(26.5, 68),scaledSize: new google.maps.Size(53, 372) },
+                // bachelorette: { url:'images/map/MapPins-big-red1.png',size: new google.maps.Size(53, 93),origin: new google.maps.Point(0, 93),anchor: new google.maps.Point(26.5, 68),scaledSize: new google.maps.Size(53, 372) },
+                wedding: {
+                    path: fontawesome.markers.HEART,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 1,
+                    fillColor: '#fb918d',
+                    fillOpacity: 1
+                },
+                bride: {
+                    path: fontawesome.markers.FEMALE,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 1,
+                    fillColor: '#fb918d',
+                    fillOpacity: 1
+                },
+                groom: {
+                    path: fontawesome.markers.MALE,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 1,
+                    fillColor: '#fb918d',
+                    fillOpacity: 1
+                },
+                attraction: {
+                    path: fontawesome.markers.STAR,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 1,
+                    fillColor: '#fb918d',
+                    fillOpacity: 1
+                },
+                restaurant: {
+                    path: fontawesome.markers.SPOON,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 1,
+                    fillColor: '#fb918d',
+                    fillOpacity: 1
+                },
+                shopping: {
+                    path: fontawesome.markers.SHOPPING_CART,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 1,
+                    fillColor: '#fb918d',
+                    fillOpacity: 1
+                },
+                airport: {
+                    path: fontawesome.markers.PLANE,
+                    scale: 0.4,
+                    strokeWeight: 0.2,
+                    strokeColor: 'black',
+                    strokeOpacity: 1,
+                    fillColor: '#fb918d',
+                    fillOpacity: 1
+                }
+
+                // weddingParty: { url:'images/map/MapPins-big-red1.png',size: new google.maps.Size(53, 93),origin: new google.maps.Point(0, 279),anchor: new google.maps.Point(26.5, 68),scaledSize: new google.maps.Size(53, 372) },
             };
 
             var mapOptions = {
@@ -456,7 +519,7 @@ if (!Array.prototype.indexOf) {
                     infoWindow.setContent('<div class="info_content"><h3>' + this.title + '</h3><p>' + this.infoContent + '</p></div>');
                     infoWindow.open(map, this);
                 });
-                
+
             };
             map.fitBounds(bound);
         }
@@ -616,7 +679,7 @@ if (!Array.prototype.indexOf) {
         /* Simple Countdown Timer - change belows date to specific one you want.
         ==================================================================================== */
         if($("#countdown").length) {
-            CountDownTimer('12/08/2015 12:00 AM', 'countdown');
+            CountDownTimer('07/25/2015 9:15 AM', 'countdown');
         }
         function CountDownTimer(dt, id) {
             var end = new Date(dt);
@@ -817,6 +880,17 @@ if (!Array.prototype.indexOf) {
 
         });
 
+        $('#event').fancybox({
+            maxWidth    : 800,
+            maxHeight   : 600,
+            fitToView   : false,
+            width       : '70%',
+            height      : '70%',
+            autoSize    : true,
+            closeClick  : false,
+            openEffect  : 'none',
+            closeEffect : 'none'
+        });
 
     });
 
