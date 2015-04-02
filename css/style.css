@@ -1594,8 +1594,8 @@ a.button i {
     margin: 0;
 }
 
-#gallery-wrapper > .block {
-    height: 303px !important;
+#gallery-wrapper > .block .image-holder {
+    height: 254px;
 }
 #gallery-wrapper > .block.gallery img {
     position: absolute;
