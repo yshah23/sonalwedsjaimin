@@ -2953,3 +2953,11 @@ ul.double-angle li:before {
     font-size: 20px;
     text-align: center;
 }
+
+input[type=checkbox]{
+    display:inline;
+}
+
+.labelgroup {
+    display: block;
+}

@@ -880,7 +880,7 @@ if (!Array.prototype.indexOf) {
 
         });
 
-        $('#event').fancybox({
+        $('#event, #proposal').fancybox({
             maxWidth    : 800,
             maxHeight   : 600,
             fitToView   : false,
