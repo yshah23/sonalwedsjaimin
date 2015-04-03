@@ -104,7 +104,7 @@
             <!-- close grid container -->
         </header>
       <div class="overlay-dark"></div>
-        <div class="container"><img src="images/album/4S2A4255.JPG" alt=""/>
+        <div class="container">
             <div class="hero-inner">
               <h1>We’re getting married.</h1>
                 <div class="info">
@@ -979,12 +979,12 @@ Our trip to Cancun, Mexico was our first time away together with the intent of f
         <section id="contact" class="bgcolor">
             <header class="section-header">
                 <h3 class="section-title">SIGN YOUR RSVP</h3>
-                <p class="section-tagline">Please RSVP before 20 December 2015.</p>
+                <p class="section-tagline">#SoJamin2015</p>
             </header>
             <div class="form">
                 <div class="container smaller">
                     <div class="row">
-                        <form action="action.php"  method="POST" autocomplete="off" class="actionform">
+                        <form id='rsvpform' action="action.php"  method="POST" autocomplete="off" class="actionform">
                             <div class="notification"></div>
                             <div class="column six">
                                 <label for="name">Name</label>
@@ -1018,19 +1018,19 @@ Our trip to Cancun, Mexico was our first time away together with the intent of f
                             <div class="column six">
                                 <label style="display:block">Which event are you attending?</label>
                                 <label class="labelgroup">
-                                    <input type="checkbox" name="whichevent" value="Mehnidi&Sangeet"/>
+                                    <input type="checkbox" name="whichevent[]" value="Mehnidi&Sangeet"/>
                                     <span>Mehnidi&Sangeet</span>
                                 </label>
                                 <label class="labelgroup">
-                                    <input type="checkbox" name="whichevent" value="Vidhi" />
+                                    <input type="checkbox" name="whichevent[]" value="Vidhi" />
                                     <span>Vidhi</span>
                                 </label>
                                 <label class="labelgroup">
-                                    <input type="checkbox" name="whichevent" value="Wedding" />
+                                    <input type="checkbox" name="whichevent[]" value="Wedding" />
                                     <span>Wedding</span>
                                 </label>
                                 <label class="labelgroup">
-                                    <input type="checkbox" name="whichevent" value="Reception" />
+                                    <input type="checkbox" name="whichevent[]" value="Reception" />
                                     <span>Reception</span>
                                 </label>
 

@@ -795,61 +795,44 @@ if (!Array.prototype.indexOf) {
             }
         })(jQuery)
 
-        var $form = $('.actionform');
+        var $djform = $('#djform');
+        var $rsvpform = $('#rsvpform');
 
         //get security question
-        function setFormAutoValue(cb) {
-            $.ajax({
-                'url': 'action.php',
-                'data': {
-                    get_auto_value: ''
-                },
-                'type': "POST",
-                'dataType': 'json',
-            }).done(function(response) {
+        // function setFormAutoValue(cb) {
+        //     $.ajax({
+        //         'url': 'action.php',
+        //         'data': {
+        //             get_auto_value: ''
+        //         },
+        //         'type': "POST",
+        //         'dataType': 'json',
+        //     }).done(function(response) {
 
-                if (typeof response.data != 'undefined') {
-                    $form.find('.auto-safe label').text(unescape(response.data));
-                }
+        //         if (typeof response.data != 'undefined') {
+        //             $form.find('.auto-safe label').text(unescape(response.data));
+        //         }
 
-                if (cb) {
-                    cb();
-                }
+        //         if (cb) {
+        //             cb();
+        //         }
 
-            });
-        }
+        //     });
+        // }
 
-        $form.on('click', '.auto-refresh', function(e) {
-            e.preventDefault();
-            var $this = $(this);
-            $this.addClass('fa-spin');
+        // $form.on('click', '.auto-refresh', function(e) {
+        //     e.preventDefault();
+        //     var $this = $(this);
+        //     $this.addClass('fa-spin');
 
-            setFormAutoValue(function() {
-                $this.removeClass('fa-spin');
-            });
-        });
+        //     setFormAutoValue(function() {
+        //         $this.removeClass('fa-spin');
+        //     });
+        // });
 
-        setFormAutoValue();
+        // setFormAutoValue();
 
-        //ajax contact form
-        $form.isValid({
-            'name': function(data) {
-                this.setClass(this.$el.parent());
-                return this.notEmpty(data);
-            },
-            'email': function(data) {
-                this.setClass(this.$el.parent());
-                return this.isEmail(data);
-            },
-            'subject': function(data) {
-                this.setClass(this.$el.parent());
-                return this.notEmpty(data);
-            },
-            'autovalue': function(data) {
-                this.setClass(this.$el.parent());
-                return this.notEmpty(data);
-            }
-        }).submit(function(e) {
+        var form_submit_handler = function(e) {
             e.preventDefault();
             var $this = $(this);
 
@@ -878,7 +861,25 @@ if (!Array.prototype.indexOf) {
                 }
             });
 
-        });
+        }
+
+        //ajax contact form
+        $rsvpform.isValid({
+            'name': function(data) {
+                this.setClass(this.$el.parent());
+                return this.notEmpty(data);
+            },
+            'email': function(data) {
+                this.setClass(this.$el.parent());
+                return this.isEmail(data);
+            },
+            'persons': function(data) {
+                this.setClass(this.$el.parent());
+                return this.notEmpty(data);
+            }
+        }).submit(form_submit_handler);
+
+
 
         $('#event, #proposal').fancybox({
             maxWidth    : 800,
