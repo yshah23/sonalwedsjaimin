@@ -27,13 +27,8 @@ if(isset($_POST['submit'])) {
 	$message = isset($_POST['message']) ? trim($_POST['message']) : '';
 	// $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
 	$subject = isset($_POST['subject']) ? trim($_POST['subject']) : 'RSVP Form Submission';
-	$events = '<ul>';
 
-	for ($i = 0; $i < $_POST['whichevent']; $i++) {
-		$events .= "<li>" . $_POST['whichevent'] . "</li>";
-	}
-
-	$events .= '</ul>';
+	$events = implode('<br />', $_POST['whichevent']);
 
 	if($name && $email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -48,7 +43,7 @@ if(isset($_POST['submit'])) {
 		}
 
 		$message .= ' <br /> Attending the following event(s):';
-		$message .= " <br /> $events";
+		$message .= " <br /> " . $events;
 
 		if (isset($_POST['brideorgroom'])) {
 			if ($_POST['brideorgroom'] == 'jaimin') {
@@ -62,7 +57,8 @@ if(isset($_POST['submit'])) {
 
 		if($send) {
 			$return['type'] = 'success';
-			$return['message'] = 'Email successfully sent.';
+			// $return['message'] = 'Email successfully sent.';
+			$return['message'] = $events;
 		} else {
 			$return['type'] = 'error';
 			$return['message'] = "Error sending email.";
@@ -77,20 +73,5 @@ if(isset($_POST['submit'])) {
 	die(json_encode($return));
 }
 
-
-
-if(isset($_POST['brideorgroom'])) {
-	$num1 = rand(1, 10);
-	$num2 = rand(1, 10);
-
-	$_SESSION['_form_validate'] = $num1 + $num2;
-
-	$return = array(
-		'data' => encode("What is {$num1} + {$num2}"),
-		'session' => $_SESSION
-	);
-
-	die(json_encode($return));
-}
 
 ?>

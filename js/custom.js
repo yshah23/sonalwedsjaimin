@@ -893,6 +893,19 @@ if (!Array.prototype.indexOf) {
             closeEffect : 'none'
         });
 
+        $('#music-mute').click( function(e){
+            var $icon = $(this).find('i');
+            if ($icon.hasClass('fa-volume-off')) {
+                $('#background-music')[0].play();
+                $icon.removeClass('fa-volume-off');
+                $icon.addClass('fa-volume-up');
+            } else {
+                $('#background-music')[0].pause();
+                $icon.removeClass('fa-volume-up');
+                $icon.addClass('fa-volume-off');
+            }
+        });
+
     });
 
 })(jQuery);
