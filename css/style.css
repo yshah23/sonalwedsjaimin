@@ -197,6 +197,40 @@ section section {
     background-image: url(../images/bgs/BG-halftone.png);
     background-repeat: repeat;
 }
+
+.timeline .column.weekday:after {
+    background-color: #FF8C89;
+    border-radius: 25px;
+    position: absolute;
+    top: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    padding: 4px 20px;
+    width: 100px;
+    text-align: center;
+}
+
+.timeline .column.weekday.left:after {
+    left: -50px;
+}
+
+.timeline .column.weekday.right:after {
+    margin-right: -40px;
+}
+
+.timeline .column.weekday.thursday:after {
+    content: 'Thursday';
+}
+
+.timeline .column.weekday.friday:after {
+    content: 'Friday';
+}
+
+.timeline .column.weekday.saturday:after {
+    content: 'Saturday';
+}
+
 .box.pattern {
     background-color: #faf8f0;
     background-image: none!important;
